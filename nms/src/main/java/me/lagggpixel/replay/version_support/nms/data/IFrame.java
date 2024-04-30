@@ -1,4 +1,4 @@
-package me.lagggpixel.replay.nms.data;
+package me.lagggpixel.replay.version_support.nms.data;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Item;
@@ -25,7 +25,7 @@ public class IFrame {
   protected boolean isBlocking;
   protected boolean isSneaking;
 
-  public IFrame(Player player) {
+  protected IFrame(Player player) {
     this.location = player.getLocation();
     this.blockLocation = null;
     this.helmet = player.getInventory().getHelmet();
@@ -41,7 +41,6 @@ public class IFrame {
     this.isSneaking = player.isSneaking();
     this.isBlocking = player.isBlocking();
   }
-
 
   public Location getLocation() {
     return location;

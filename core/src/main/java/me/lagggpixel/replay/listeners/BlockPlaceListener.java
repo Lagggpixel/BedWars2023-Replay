@@ -1,7 +1,7 @@
 package me.lagggpixel.replay.listeners;
 
-import me.lagggpixel.replay.nms.data.Cache;
-import me.lagggpixel.replay.nms.data.IFrame;
+import me.lagggpixel.replay.version_support.nms.data.Cache;
+import me.lagggpixel.replay.version_support.nms.data.IFrame;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

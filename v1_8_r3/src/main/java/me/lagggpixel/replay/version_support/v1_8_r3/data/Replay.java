@@ -1,9 +1,9 @@
-package me.lagggpixel.support.version.data;
+package me.lagggpixel.replay.version_support.v1_8_r3.data;
 
-import me.lagggpixel.replay.nms.data.Cache;
-import me.lagggpixel.replay.nms.data.IFrame;
-import me.lagggpixel.replay.nms.data.IReplay;
-import me.lagggpixel.support.version.V1_8_R3;
+import me.lagggpixel.replay.version_support.nms.data.Cache;
+import me.lagggpixel.replay.version_support.nms.data.IFrame;
+import me.lagggpixel.replay.version_support.nms.data.IReplay;
+import me.lagggpixel.replay.version_support.v1_8_r3.V1_8_R3;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Material;
 import org.bukkit.*;
@@ -19,6 +19,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,24 +28,29 @@ import java.util.List;
  */
 public class Replay implements IReplay {
   private final Player player;
-  private final List<IFrame> frames;
+  private final List<Frame> frames;
   private int recordingTaskId;
 
-  public Replay(Player player, List<IFrame> frames) {
+  public Replay(Player player) {
+    this.player = player;
+    this.frames = new ArrayList<>();
+  }
+
+  public Replay(Player player, List<Frame> frames) {
     this.player = player;
     this.frames = frames;
   }
 
   @Override
   public List<IFrame> getFrames() {
-    return frames;
+    return new ArrayList<>(frames);
   }
 
   @Override
   public void play(Player player) {
     EntityPlayer npc = V1_8_R3.getInstance().getUtility().createNpc(player, frames.get(0).getLocation(), this.player.getDisplayName());
     PlayerConnection connection = ((CraftPlayer) player).getHandle().playerConnection;
-    for (IFrame frame : frames) {
+    for (Frame frame : frames) {
       int delay = frames.indexOf(frame);
       Bukkit.getScheduler().runTaskLaterAsynchronously(V1_8_R3.getPlugin(), () -> {
         Location location = frame.getLocation();
@@ -164,7 +170,7 @@ public class Replay implements IReplay {
     Cache.replays.put(player, this);
     Cache.recordingPlayers.add(player);
     recordingTaskId = Bukkit.getScheduler().runTaskTimerAsynchronously(V1_8_R3.getPlugin(), () -> {
-      frames.add(new IFrame(player));
+      frames.add(new Frame(player));
     }, 0, 1).getTaskId();
   }
 

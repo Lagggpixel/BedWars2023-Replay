@@ -53,7 +53,6 @@
             <id>maven</id>
             <url>https://repo1.maven.org/maven2/</url>
         </repository>
-
     </repositories>
 
     <dependencies>
@@ -61,6 +60,7 @@
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

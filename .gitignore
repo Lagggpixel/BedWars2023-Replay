@@ -113,4 +113,5 @@ buildNumber.properties
 run/
 
 # Test server
+server(1.8.8)/
 server(1.20.4)/

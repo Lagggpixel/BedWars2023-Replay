@@ -18,14 +18,16 @@
 
   <dependencies>
     <dependency>
-      <groupId>me.lagggpixel.replay</groupId>
+      <groupId>me.lagggpixel.replay.version_support</groupId>
       <artifactId>nms</artifactId>
       <version>1.0.0</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>me.lagggpixel.replay</groupId>
+      <groupId>me.lagggpixel.replay.version_support</groupId>
       <artifactId>v1_8_r3</artifactId>
       <version>1.0.0</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 
@@ -48,10 +50,10 @@
               <goal>shade</goal>
             </goals>
             <configuration>
-              <outputFile>${project.parent}\target\Bw2023-ReplayAddon-${project.version}.jar</outputFile>
+              <outputFile>${basedir}\..\target\Bw2023-ReplayAddon-${project.version}.jar</outputFile>
               <artifactSet>
                 <includes>
-                  <include>su.nightexpress.sunlight:*</include>
+                  <include>me.lagggpixel.replay</include>
                 </includes>
               </artifactSet>
             </configuration>
