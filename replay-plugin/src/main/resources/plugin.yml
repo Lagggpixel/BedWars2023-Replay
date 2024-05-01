@@ -1,3 +1,5 @@
 name: replay-plugin
 version: '${project.version}'
 main: me.lagggpixel.replay.Replay
+authors: [lagggpixel, Kiiya, agentnoobff]
+softdepend: [ BedWars2023, BWProxy2023, PlaceholderAPI ]
