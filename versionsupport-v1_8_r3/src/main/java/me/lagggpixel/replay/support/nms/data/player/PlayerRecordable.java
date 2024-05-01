@@ -3,7 +3,6 @@ package me.lagggpixel.replay.support.nms.data.player;
 import me.lagggpixel.replay.api.data.Vector3d;
 import me.lagggpixel.replay.api.data.player.IPlayerRecordable;
 import me.lagggpixel.replay.support.nms.V1_8_R3;
-import net.minecraft.server.v1_8_R3.Entity;
 import net.minecraft.server.v1_8_R3.EntityPlayer;
 import net.minecraft.server.v1_8_R3.Item;
 import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
