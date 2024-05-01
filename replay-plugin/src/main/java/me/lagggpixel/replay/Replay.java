@@ -1,7 +1,7 @@
 package me.lagggpixel.replay;
 
 import me.lagggpixel.replay.api.IReplay;
-import me.lagggpixel.replay.api.IVersionSupport;
+import me.lagggpixel.replay.api.support.IVersionSupport;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Replay extends JavaPlugin implements IReplay {

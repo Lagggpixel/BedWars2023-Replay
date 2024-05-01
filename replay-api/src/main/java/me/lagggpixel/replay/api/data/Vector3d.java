@@ -9,19 +9,10 @@ public class Vector3d {
   protected final double y;
   protected final double z;
 
-  public Vector3d(double var1, double var2, double var3) {
-    this.x = var1;
-    this.y = var2;
-    this.z = var3;
-  }
-
-  public boolean equals(Object var1) {
-    if (!(var1 instanceof Vector3d)) {
-      return false;
-    } else {
-      Vector3d var2 = (Vector3d)var1;
-      return this.x == var2.x && this.y == var2.y && this.z == var2.z;
-    }
+  public Vector3d(double x, double y, double z) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
   }
 
   public double getX() {
@@ -34,5 +25,14 @@ public class Vector3d {
 
   public double getZ() {
     return this.z;
+  }
+
+  public boolean equals(Object var1) {
+    if (!(var1 instanceof Vector3d)) {
+      return false;
+    } else {
+      Vector3d var2 = (Vector3d)var1;
+      return this.x == var2.x && this.y == var2.y && this.z == var2.z;
+    }
   }
 }
