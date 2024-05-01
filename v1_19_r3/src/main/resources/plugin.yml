@@ -1,4 +1,0 @@
-name: v1_19_r3
-version: '${project.version}'
-main: me.kiiya.v1_19_r3.V1_19_r3
-api-version: '1.18'

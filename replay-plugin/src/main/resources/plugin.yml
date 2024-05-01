@@ -1,9 +1,3 @@
-name: Bw2023-Replay
+name: replay-plugin
 version: '${project.version}'
-main: me.lagggpixel.replay.Main
-api-version: '1.8'
-load: POSTWORLD
-depend: []
-commands:
-  replay:
-    permission: replay.replay
+main: me.kiiya.replay.Replay
