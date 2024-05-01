@@ -1,9 +1,13 @@
 package me.lagggpixel.replay.support.nms;
 
+import me.lagggpixel.replay.api.recordable.entity.player.recordables.IEquipment;
+import me.lagggpixel.replay.support.nms.recordable.entity.player.recordables.Equipment;
 import org.bukkit.Bukkit;
 import me.lagggpixel.replay.api.IReplay;
 import me.lagggpixel.replay.api.support.IVersionSupport;
 import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
+
+import java.util.UUID;
 
 public class v1_8_R3 implements IVersionSupport {
   private static v1_8_R3 instance;
@@ -26,5 +30,10 @@ public class v1_8_R3 implements IVersionSupport {
 
   public CraftServer getServer() {
     return server;
+  }
+
+  @Override
+  public IEquipment getEquipment(UUID uuid) {
+    return new Equipment(uuid);
   }
 }
