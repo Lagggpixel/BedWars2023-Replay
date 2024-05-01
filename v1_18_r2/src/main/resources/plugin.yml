@@ -1,0 +1,4 @@
+name: v1_18_r2
+version: '${project.version}'
+main: me.kiiya.v1_18_r2.V1_18_r2
+api-version: '1.18'

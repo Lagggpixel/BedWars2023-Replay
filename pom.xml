@@ -5,18 +5,28 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.lagggpixel.replay</groupId>
-    <artifactId>ReplayAddon</artifactId>
+    <artifactId>BedWars2023-Replay</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
+
     <modules>
-        <module>core</module>
+        <module>replay-plugin</module>
         <module>nms</module>
         <module>v1_8_r3</module>
+        <module>v1_12_r1</module>
+        <module>v1_16_r3</module>
+        <module>v1_17_r1</module>
+        <module>v1_18_r2</module>
+        <module>v1_19_r3</module>
+        <module>v1_20_r1</module>
+        <module>v1_20_r2</module>
+        <module>v1_20_r3</module>
+        <module>v1_20_r4</module>
     </modules>
 
     <properties>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <java.version>11</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <repositories>
@@ -30,10 +40,44 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <version>1.13.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 </project>

@@ -3,24 +3,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <artifactId>BedWars2023-Replay</artifactId>
         <groupId>me.lagggpixel.replay</groupId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>replayaddon-vs-v1_8_r3</artifactId>
+    <artifactId>replayaddon-vs-v1_20_r1</artifactId>
     <packaging>jar</packaging>
 
-    <name>replayaddon-vs-v1_8_r3</name>
+    <name>replayaddon-vs-v1_20_r1</name>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>18</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <repositories>
         <repository>
-            <id>spigot-repo</id>
+            <id>spigotmc-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
     </repositories>
@@ -29,13 +30,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>me.lagggpixel.replay.version_support</groupId>
-            <artifactId>nms</artifactId>
-            <version>1.0.0</version>
+            <version>1.20.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -61,9 +56,6 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
