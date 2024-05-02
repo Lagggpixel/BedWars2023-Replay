@@ -11,7 +11,9 @@ import java.util.UUID;
  */
 public interface IVersionSupport {
 
-  PlayerInformation getPlayerInformation(UUID uuid);
+  default PlayerInformation getPlayerInformation(UUID uuid) {
+    return new PlayerInformation(uuid);
+  }
 
   /**
    * Gets the player's current equipment
