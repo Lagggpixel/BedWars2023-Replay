@@ -2,7 +2,6 @@ package me.lagggpixel.replay.api.support;
 
 import me.lagggpixel.replay.api.recordable.entity.player.recordables.IEquipment;
 import me.lagggpixel.replay.api.recordable.entity.player.recordables.PlayerInformation;
-import me.lagggpixel.replay.api.recordable.world.block.types.IBlockBreakRecordable;
 import me.lagggpixel.replay.api.recordable.world.block.types.IBlockPlaceRecordable;
 import org.bukkit.block.Block;
 
@@ -31,14 +30,6 @@ public interface IVersionSupport {
    * @return Equipment object containing data about the player's equipment
    */
   IEquipment getEquipment(UUID uuid);
-
-  /**
-   * Creates a new instance of IBlockBreakRecordable
-   * @see IBlockBreakRecordable
-   * @param uuid The uuid of the player breaking the block
-   * @return IBlockBreakRecordable instance containing the information regarding the block break
-   */
-  IBlockBreakRecordable getBlockBreak(UUID uuid, Block block);
 
   /**
    * Creates a new instance of IBlockPlaceRecordable

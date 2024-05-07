@@ -21,6 +21,16 @@ public abstract class BlockRecordable extends WorldRecordable implements IBlockR
     this.location = new Vector3i(block.getX(), block.getY(), block.getZ());
   }
 
+  public BlockRecordable(UUID uuid, int x, int y, int z) {
+    this.uuid = uuid;
+    this.location = new Vector3i(x, y, z);
+  }
+
+  public BlockRecordable(UUID uuid, Vector3i location) {
+    this.uuid = uuid;
+    this.location = location;
+  }
+
   @Override
   public UUID getUuid() {
     return null;

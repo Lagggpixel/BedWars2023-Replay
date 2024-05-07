@@ -1,5 +1,6 @@
 package me.lagggpixel.replay.api;
 
-public interface IReplay {
+import org.bukkit.plugin.Plugin;
 
+public interface IReplay extends Plugin {
 }

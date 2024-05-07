@@ -2,11 +2,10 @@ package me.lagggpixel.replay.support.nms;
 
 import me.lagggpixel.replay.api.IReplay;
 import me.lagggpixel.replay.api.recordable.entity.player.recordables.IEquipment;
-import me.lagggpixel.replay.api.recordable.world.block.types.IBlockBreakRecordable;
 import me.lagggpixel.replay.api.recordable.world.block.types.IBlockPlaceRecordable;
 import me.lagggpixel.replay.api.support.IVersionSupport;
+import me.lagggpixel.replay.support.nms.packets.InjectorHandler;
 import me.lagggpixel.replay.support.nms.recordable.entity.player.recordables.Equipment;
-import me.lagggpixel.replay.support.nms.recordable.world.block.types.BlockBreakRecordable;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
@@ -22,6 +21,8 @@ public class v1_8_R3 implements IVersionSupport {
     this.server = (CraftServer) Bukkit.getServer();
     v1_8_R3.plugin = plugin;
     instance = this;
+
+    InjectorHandler.init();
   }
 
   public static v1_8_R3 getInstance() {
@@ -39,11 +40,6 @@ public class v1_8_R3 implements IVersionSupport {
   @Override
   public IEquipment getEquipment(UUID uuid) {
     return new Equipment(uuid);
-  }
-
-  @Override
-  public IBlockBreakRecordable getBlockBreak(UUID uuid, Block block) {
-    return new BlockBreakRecordable(uuid, block);
   }
 
   @Override
