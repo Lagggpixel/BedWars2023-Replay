@@ -1,9 +1,8 @@
 package me.lagggpixel.replay.api.recordable.entity.player.recordables;
 
-import me.lagggpixel.replay.api.recordable.entity.player.IPlayerRecordable;
 import org.bukkit.inventory.ItemStack;
 
-public interface IEquipment extends IPlayerRecordable {
+public interface IEquipment {
 
   ItemStack getMainHand();
 

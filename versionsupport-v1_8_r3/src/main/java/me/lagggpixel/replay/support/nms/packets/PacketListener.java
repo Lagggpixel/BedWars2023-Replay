@@ -4,8 +4,7 @@ import me.lagggpixel.replay.api.data.Vector3i;
 import me.lagggpixel.replay.api.events.PacketReadEvent;
 import me.lagggpixel.replay.api.events.PacketWriteEvent;
 import me.lagggpixel.replay.api.packets.IPacketListener;
-import me.lagggpixel.replay.support.nms.recordable.world.block.types.BlockDigPacketRecordable;
-import me.lagggpixel.replay.support.nms.recordable.world.block.types.BlockPlacePacketRecordable;
+import me.lagggpixel.replay.support.nms.recordable.world.block.BlockRecordable;
 import me.lagggpixel.replay.support.nms.v1_8_R3;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.entity.Player;
@@ -84,8 +83,8 @@ public class PacketListener implements IPacketListener {
     // note this will break if there's more than 512 items
     short id = (short) Item.getId(packet.getItemStack().getItem());
     int face = packet.getFace();
-    BlockPlacePacketRecordable recordable =
-        new BlockPlacePacketRecordable(uuid, location, id, face);
+    BlockRecordable recordable =
+        BlockRecordable.createBlockPlaceRecordable(uuid, location, id, face);
     // todo - store this recordable
   }
 
@@ -99,8 +98,12 @@ public class PacketListener implements IPacketListener {
     byte dirByte = serializeDirection(packet.b());
     byte digTypeByte = serializeDigType(packet.c());
 
-    BlockDigPacketRecordable recordable =
-        new BlockDigPacketRecordable(uuid, location, dirByte, digTypeByte);
+    BlockRecordable recordable =
+        BlockRecordable.createBlockDigRecordable(
+            uuid,
+            location,
+            dirByte,
+            digTypeByte);
     // todo - store this recordable
   }
 

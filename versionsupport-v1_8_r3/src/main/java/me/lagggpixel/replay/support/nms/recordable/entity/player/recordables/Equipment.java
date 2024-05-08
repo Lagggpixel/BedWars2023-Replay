@@ -1,7 +1,6 @@
 package me.lagggpixel.replay.support.nms.recordable.entity.player.recordables;
 
 import me.lagggpixel.replay.api.recordable.entity.player.recordables.IEquipment;
-import me.lagggpixel.replay.support.nms.recordable.entity.player.PlayerRecordable;
 import me.lagggpixel.replay.support.nms.v1_8_R3;
 import net.minecraft.server.v1_8_R3.EntityPlayer;
 import net.minecraft.server.v1_8_R3.Item;
@@ -19,7 +18,7 @@ import java.util.stream.Collectors;
  * @author Lagggpixel
  * @since May 01, 2024
  */
-public class Equipment extends PlayerRecordable implements IEquipment {
+public class Equipment implements IEquipment {
   // Armour type mappings:
   //   0 - > null
   //   1 - > leather

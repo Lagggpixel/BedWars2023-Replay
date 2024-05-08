@@ -2,7 +2,6 @@ package me.lagggpixel.replay.api.recordable.entity.player.recordables;
 
 import me.lagggpixel.replay.api.data.Camera;
 import me.lagggpixel.replay.api.data.Vector3d;
-import me.lagggpixel.replay.api.recordable.entity.player.IPlayerRecordable;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -12,7 +11,7 @@ import java.util.UUID;
  * @author Lagggpixel
  * @since May 01, 2024
  */
-public class PlayerInformation implements IPlayerRecordable {
+public class PlayerInformation {
 
   private final Vector3d location;
   private final Camera camera;

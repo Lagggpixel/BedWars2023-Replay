@@ -1,11 +1,10 @@
 package me.lagggpixel.replay.api.recordable.world.block;
 
 import me.lagggpixel.replay.api.data.Vector3i;
-import me.lagggpixel.replay.api.recordable.world.IWorldRecordable;
 
 import java.util.UUID;
 
-public interface IBlockRecordable extends IWorldRecordable {
+public interface IBlockRecordable {
 
   /**
    * Gets the uuid of the player who triggered the block action
@@ -23,9 +22,9 @@ public interface IBlockRecordable extends IWorldRecordable {
 
   /**
    * Gets the byte representing the action type
-   * 0 -> Break
-   * 1 -> Place
-   * 2 -> Interact
+   * 0001 -> Break
+   * 0010 -> Place
+   * 0011 -> Interact
    * @return Byte representing the action type
    */
   byte getActionType();
