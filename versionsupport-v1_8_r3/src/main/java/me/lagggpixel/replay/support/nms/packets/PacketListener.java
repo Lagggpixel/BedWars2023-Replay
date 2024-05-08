@@ -5,10 +5,9 @@ import me.lagggpixel.replay.api.events.PacketReadEvent;
 import me.lagggpixel.replay.api.events.PacketWriteEvent;
 import me.lagggpixel.replay.api.packets.IPacketListener;
 import me.lagggpixel.replay.support.nms.recordable.world.block.types.BlockDigPacketRecordable;
+import me.lagggpixel.replay.support.nms.recordable.world.block.types.BlockPlacePacketRecordable;
 import me.lagggpixel.replay.support.nms.v1_8_R3;
-import net.minecraft.server.v1_8_R3.BlockPosition;
-import net.minecraft.server.v1_8_R3.EnumDirection;
-import net.minecraft.server.v1_8_R3.PacketPlayInBlockDig;
+import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 
@@ -67,7 +66,27 @@ public class PacketListener implements IPacketListener {
     if (pac instanceof PacketPlayInBlockDig) {
       PacketPlayInBlockDig packet = (PacketPlayInBlockDig) pac;
       handleBlockDigPacket(p, packet);
+      return;
     }
+    if (pac instanceof PacketPlayInBlockPlace) {
+      PacketPlayInBlockPlace packet = (PacketPlayInBlockPlace) pac;
+      handleBlockPlacePacket(p, packet);
+    }
+  }
+
+  private void handleBlockPlacePacket(Player p, PacketPlayInBlockPlace packet) {
+    BlockPosition blockPos = packet.a();
+    UUID uuid = p.getUniqueId();
+    int posX = blockPos.getX();
+    int posY = blockPos.getY();
+    int posZ = blockPos.getZ();
+    Vector3i location = new Vector3i(posX, posY, posZ);
+    // note this will break if there's more than 512 items
+    short id = (short) Item.getId(packet.getItemStack().getItem());
+    int face = packet.getFace();
+    BlockPlacePacketRecordable recordable =
+        new BlockPlacePacketRecordable(uuid, location, id, face);
+    // todo - store this recordable
   }
 
   private void handleBlockDigPacket(Player p, PacketPlayInBlockDig packet) {
@@ -80,7 +99,8 @@ public class PacketListener implements IPacketListener {
     byte dirByte = serializeDirection(packet.b());
     byte digTypeByte = serializeDigType(packet.c());
 
-    BlockDigPacketRecordable blockDigPacketRecordable = new BlockDigPacketRecordable(uuid, location, dirByte, digTypeByte);
+    BlockDigPacketRecordable recordable =
+        new BlockDigPacketRecordable(uuid, location, dirByte, digTypeByte);
     // todo - store this recordable
   }
 
