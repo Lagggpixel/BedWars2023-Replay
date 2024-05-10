@@ -1,4 +1,4 @@
-package me.lagggpixel.replay;
+package me.lagggpixel.replay.data;
 
 import me.lagggpixel.replay.api.data.IFrame;
 import me.lagggpixel.replay.api.recordable.IRecordable;
@@ -39,6 +39,7 @@ public class Frame implements IFrame {
     this.recordables.addAll(recordableList);
   }
 
+  @Override
   public void play(Player player) {
     for (IRecordable recordable : recordables) {
       recordable.play(player);

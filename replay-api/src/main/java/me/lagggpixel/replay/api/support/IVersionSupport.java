@@ -2,9 +2,6 @@ package me.lagggpixel.replay.api.support;
 
 import me.lagggpixel.replay.api.recordable.entity.player.recordables.IEquipment;
 import me.lagggpixel.replay.api.recordable.entity.player.recordables.PlayerInformation;
-import me.lagggpixel.replay.api.recordable.world.block.types.IBlockPlaceRecordable;
-import org.bukkit.block.Block;
-
 import java.util.UUID;
 
 /**
@@ -31,11 +28,4 @@ public interface IVersionSupport {
    */
   IEquipment getEquipment(UUID uuid);
 
-  /**
-   * Creates a new instance of IBlockPlaceRecordable
-   * @see IBlockPlaceRecordable
-   * @param uuid The uuid of the player placing the block
-   * @return IBlockPlaceRecordable instance containing the information regarding the block place
-   */
-  IBlockPlaceRecordable getBlockPlace(UUID uuid, Block block);
 }
