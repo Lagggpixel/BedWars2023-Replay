@@ -37,7 +37,7 @@
             <groupId>me.lagggpixel</groupId>
             <artifactId>replay-api</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>me.lagggpixel</groupId>
